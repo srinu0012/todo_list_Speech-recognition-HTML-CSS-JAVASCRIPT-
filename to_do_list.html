@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url(./itachi.jpg)no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        #con{
+            /* border: 2px solid; */
+            min-height:300px ;
+            width: 500px;
+            padding: 10px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(9px);
+            color: #fff;
+            border-radius: 12px;
+            padding: 30px 40px;
+        }
+        #val{
+            margin-left: 50%;
+            translate: -50%;
+            font-size: 18px;
+            outline: none;
+            border: none;
+            border-bottom:2px solid ;
+            padding-left: 20px;
+        }
+        #btn{
+            margin-left:-24%;
+            font-size: 18px;
+        }
+        #ele{
+           display: inline-block;
+           align-self: flex-end;
+           font-size: larger;
+
+        }
+        #mark{
+            width: 3em;
+            background: #cf0b0b;
+            color: #fff;
+        }
+        #shown{
+            margin-left: 50%;
+            margin-top: 5px;
+            min-width: 200px;
+            height: 30px;
+            display: flex;
+            justify-content: space-around;
+            translate: -50%;
+            border-bottom: 2px solid;
+        }
+        .btn1{
+            color: #fff;
+            width: 3em;
+            background: #cf0b0b;
+        }
+
+    </style>
+
+
+
+
+</head>
+<body>
+    <div class="container" id="con">
+        <div>
+        <input type="text" id="val" placeholder="
+        Enter task">
+        <button id="btn">enter</button>
+        </div>
+
+    </div>
+    
+
+
+
+
+    <script>
+        
+        let con=document.getElementById("con")
+        let task =document.getElementById("val")
+        let btn = document.getElementById("btn")
+        btn.addEventListener("click",()=>{
+            let ele =document.createElement("p")
+            ele.innerText=task.value
+            ele.id="ele"
+            let text=ele.innerText +" task added"
+            let speaking = new SpeechSynthesisUtterance(text)
+            speechSynthesis.speak(speaking)
+
+
+            let divget=document.createElement("div")
+            divget.id="shown"
+            let edit = document.createElement("button")
+            edit.innerText="Edit"
+            edit.style.marginLeft="50px"
+            edit.className="btn1"
+            let mark=document.createElement("button")
+            mark.innerText="mark"
+            mark.id="mark"
+            mark.addEventListener("click",()=>{
+                ele.innerHTML=`<strike>${ele.innerText}</strike>`
+                let text=ele.innerText +"completed"
+                let speaking = new SpeechSynthesisUtterance(text)
+                speechSynthesis.speak(speaking)
+            })
+
+            edit.addEventListener("click",()=>{               
+                let edit_take=prompt("enter editing task : ")
+                ele.innerText=edit_take
+                let text=ele.innerText +"edited"
+                let speaking = new SpeechSynthesisUtterance(text)
+                speechSynthesis.speak(speaking)
+            })
+
+
+
+            let del = document.createElement("button")
+            del.innerText="delete"
+            del.className="btn1"
+            del.addEventListener("click",()=>{               
+                
+                ele.innerText=""
+                edit.style.display="none"
+                del.style.display="none"
+                divget.style.display="none"
+                let text="task deleted"
+                let speaking = new SpeechSynthesisUtterance(text)
+                speechSynthesis.speak(speaking)
+            })
+            divget.appendChild(ele)
+            divget.appendChild(edit)
+            divget.appendChild(del)
+            divget.appendChild(mark)
+            task.value=""
+            con.appendChild(divget)
+        })
+        
+
+    </script>
+</body>
+</html>
