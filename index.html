@@ -20,10 +20,17 @@
             background-size: cover;
             background-position: center;
         }
+        .men{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            
+        }
         #con{
-            /* border: 2px solid; */
-            min-height:300px ;
-            width: 500px;
+          
+            translate: -50%;
+            height:300px ;
+           min-width: 300px;
             padding: 10px;
             background: transparent;
             border: 2px solid rgba(255, 255, 255, .2);
@@ -31,19 +38,22 @@
             color: #fff;
             border-radius: 12px;
             padding: 30px 40px;
+            overflow-y: scroll;
+            scrollbar-width: none;
         }
         #val{
-            margin-left: 50%;
-            translate: -50%;
+           
             font-size: 18px;
             outline: none;
             border: none;
-            border-bottom:2px solid ;
+            border-bottom:2px solid red;
             padding-left: 20px;
+            background: transparent;
+            color: #fff;
         }
         #btn{
-            margin-left:-24%;
             font-size: 18px;
+            background-color: red;
         }
         #ele{
            display: inline-block;
@@ -71,7 +81,13 @@
             width: 3em;
             background: #cf0b0b;
         }
-
+        @media (max-width:600px) {
+            #con{
+                translate: 0;
+                height: 40%;
+                width: 50%;
+            }
+        }
     </style>
 
 
@@ -80,7 +96,7 @@
 </head>
 <body>
     <div class="container" id="con">
-        <div>
+        <div class="men">
         <input type="text" id="val" placeholder="
         Enter task">
         <button id="btn">enter</button>
