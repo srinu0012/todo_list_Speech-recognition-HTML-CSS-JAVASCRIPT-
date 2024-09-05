@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(./itachi.jpg)no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.men{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+#con{
+  
+    translate: -50%;
+    height:300px ;
+   min-width: 300px;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(9px);
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+#val{
+    position: relative;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    border-bottom:2px solid red;
+    padding-left: 20px;
+    background: transparent;
+    color: #fff;
+}
+#mic{
+    position: absolute;
+    left: 60%;
+}
+#btn{
+    font-size: 18px;
+    background-color: red;
+}
+#ele{
+   display: inline-block;
+   align-self: flex-end;
+   font-size: larger;
+
+}
+#mark{
+    width: 3em;
+    background: #cf0b0b;
+    color: #fff;
+}
+#shown{
+    margin-left: 50%;
+    margin-top: 5px;
+    min-width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    translate: -50%;
+    border-bottom: 2px solid;
+}
+.btn1{
+    color: #fff;
+    width: 3em;
+    background: #cf0b0b;
+}
+@media (max-width:600px) {
+    #con{
+        translate: 0;
+        height: 40%;
+        width: 50%;
+    }
+    #mic{
+        left: 80%;
+    }
+}
